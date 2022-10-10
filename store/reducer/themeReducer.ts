@@ -5,11 +5,15 @@ type TThemeAction =
   | ReturnType<typeof A.setDarkTheme>
   | ReturnType<typeof A.setWhiteTheme>
 
-const initialState = {
+interface ITheme {
+  theme: object;
+}
+
+const initialState:ITheme = {
   theme: whiteTheme,
 }
 
-const themeReducer = (state = initialState, action: TThemeAction) => {
+const themeReducer = (state:ITheme = initialState, action: TThemeAction) => {
   switch (action.type) {
     case A.SET_DARK_THEME:
       return {

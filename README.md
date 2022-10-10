@@ -23,4 +23,6 @@ yarn add babel-plugin-styled-components
 yarn add babel-preset-next
 yarn add babel-plugin-module-resolver
 yarn add prettier
+yarn add react-responsive @types/react-responsive
+yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { HYDRATE } from 'next-redux-wrapper'
 
 import themeReducer from './reducer/themeReducer'
+import loginReducer from './reducer/loginReducer'
 
 const rootReducer = (state, action) => {
   switch (action.type) {
@@ -11,6 +12,7 @@ const rootReducer = (state, action) => {
     default :
       return combineReducers({
         themeReducer,
+        loginReducer
       })(state, action)
   }
 }
