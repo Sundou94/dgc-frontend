@@ -1,0 +1,24 @@
+pipeline {
+     agent any
+     stages {
+        stage("Build") {
+            steps {
+                sh "sudo npm install"
+                sh "sudo npm run build"
+            }
+        }
+        stage("Deploy") {
+            steps {
+                script {
+                    sh 'sudo chmod +x ./script/deploy.sh'
+                    sh 'sudo ./script/deploy.sh'
+                }
+            }
+        }
+        stage("Trensfer") {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'gdc-ui-instance', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: 'script', sourceFiles: 'script/**')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+    }
+}
