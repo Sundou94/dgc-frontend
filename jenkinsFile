@@ -4,6 +4,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "su douseon"
+                sh "wjdxhd152!@"
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
